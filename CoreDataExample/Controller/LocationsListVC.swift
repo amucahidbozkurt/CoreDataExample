@@ -26,6 +26,8 @@ class LocationsListVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addBtnClicked))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(getData), name: NSNotification.Name(rawValue: "newData"), object: nil)
     }
     
     @objc private func addBtnClicked() {
@@ -36,7 +38,10 @@ class LocationsListVC: UIViewController {
         }
     }
     
-    private func getData() {
+    @objc private func getData() {
+        cityNameArray.removeAll(keepingCapacity: false)
+        idArray.removeAll(keepingCapacity: false)
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         

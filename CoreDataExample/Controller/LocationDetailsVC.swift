@@ -62,6 +62,8 @@ class LocationDetailsVC: UIViewController {
         setValues(newLocation: newLocation)
         saveValues(context: context)
         
+        NotificationCenter.default.post(name: NSNotification.Name("newData"), object: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func setValues(newLocation: NSManagedObject) {
