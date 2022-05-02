@@ -47,32 +47,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iqn-YK-7E2">
-                                <rect key="frame" x="32" y="89" width="350" height="350"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Iqn-YK-7E2" secondAttribute="height" multiplier="1:1" id="YJ1-bq-hdY"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bNY-9t-yzT">
-                                <rect key="frame" x="32" y="469" width="350" height="160.5"/>
+                                <rect key="frame" x="50" y="408" width="314" height="160.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What is the name of the city?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BKN-Bq-dj7">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What is the name of the city?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BKN-Bq-dj7">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="When did you visit? (only year)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dDd-GN-KHQ">
-                                        <rect key="frame" x="0.0" y="42" width="350" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="When did you visit? (only year)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dDd-GN-KHQ">
+                                        <rect key="frame" x="0.0" y="42" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What is the famous food of the city?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKb-Lh-ojf">
-                                        <rect key="frame" x="0.0" y="84" width="350" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What is the famous food of the city?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKb-Lh-ojf">
+                                        <rect key="frame" x="0.0" y="84" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDq-d2-wla">
-                                        <rect key="frame" x="0.0" y="126" width="350" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="126" width="314" height="34.5"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -85,16 +79,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle.angled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Iqn-YK-7E2">
+                                <rect key="frame" x="50" y="63.5" width="314" height="314"/>
+                                <color key="tintColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Iqn-YK-7E2" secondAttribute="height" multiplier="1:1" id="YJ1-bq-hdY"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="llB-Fz-YFO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="llB-Fz-YFO" firstAttribute="trailing" secondItem="Iqn-YK-7E2" secondAttribute="trailing" constant="32" id="47C-eN-xHo"/>
-                            <constraint firstItem="llB-Fz-YFO" firstAttribute="trailing" secondItem="bNY-9t-yzT" secondAttribute="trailing" constant="32" id="IAN-gb-Muy"/>
-                            <constraint firstItem="Iqn-YK-7E2" firstAttribute="top" secondItem="llB-Fz-YFO" secondAttribute="top" constant="45" id="Mml-SH-u1n"/>
-                            <constraint firstItem="bNY-9t-yzT" firstAttribute="leading" secondItem="llB-Fz-YFO" secondAttribute="leading" constant="32" id="MqV-R3-EH1"/>
-                            <constraint firstItem="Iqn-YK-7E2" firstAttribute="leading" secondItem="llB-Fz-YFO" secondAttribute="leading" constant="32" id="cAr-38-jYs"/>
-                            <constraint firstItem="bNY-9t-yzT" firstAttribute="top" secondItem="Iqn-YK-7E2" secondAttribute="bottom" constant="30" id="ssp-O9-URN"/>
+                            <constraint firstItem="llB-Fz-YFO" firstAttribute="trailing" secondItem="Iqn-YK-7E2" secondAttribute="trailing" constant="50" id="6g9-h0-KNV"/>
+                            <constraint firstItem="llB-Fz-YFO" firstAttribute="trailing" secondItem="bNY-9t-yzT" secondAttribute="trailing" constant="50" id="IAN-gb-Muy"/>
+                            <constraint firstItem="bNY-9t-yzT" firstAttribute="leading" secondItem="llB-Fz-YFO" secondAttribute="leading" constant="50" id="MqV-R3-EH1"/>
+                            <constraint firstItem="bNY-9t-yzT" firstAttribute="top" secondItem="Iqn-YK-7E2" secondAttribute="bottom" constant="30" id="Xt4-bb-p9i"/>
+                            <constraint firstItem="Iqn-YK-7E2" firstAttribute="leading" secondItem="llB-Fz-YFO" secondAttribute="leading" constant="50" id="ujG-lV-TEr"/>
+                            <constraint firstItem="Iqn-YK-7E2" firstAttribute="top" secondItem="llB-Fz-YFO" secondAttribute="top" constant="20" id="v93-Pa-Fji"/>
                         </constraints>
                     </view>
                     <connections>
@@ -129,11 +130,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="photo.on.rectangle.angled" catalog="system" width="128" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
