@@ -15,6 +15,8 @@
 		16CE7EE928200A02007CB9F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CE7EE828200A02007CB9F5 /* Assets.xcassets */; };
 		16CE7EEC28200A02007CB9F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CE7EEA28200A02007CB9F5 /* LaunchScreen.storyboard */; };
 		16CE7EF528200E3B007CB9F5 /* LocationDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CE7EF428200E3B007CB9F5 /* LocationDetailsVC.swift */; };
+		16CE7EF728204B22007CB9F5 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CE7EF628204B22007CB9F5 /* Attributes.swift */; };
+		16CE7EF928205253007CB9F5 /* LocaitonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CE7EF828205253007CB9F5 /* LocaitonTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		16CE7EEB28200A02007CB9F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16CE7EED28200A02007CB9F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16CE7EF428200E3B007CB9F5 /* LocationDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsVC.swift; sourceTree = "<group>"; };
+		16CE7EF628204B22007CB9F5 /* Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
+		16CE7EF828205253007CB9F5 /* LocaitonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaitonTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +66,9 @@
 			children = (
 				16CE7EDC28200A01007CB9F5 /* AppDelegate.swift */,
 				16CE7EDE28200A01007CB9F5 /* SceneDelegate.swift */,
+				16CE7EF628204B22007CB9F5 /* Attributes.swift */,
 				16CE7EF328200E16007CB9F5 /* Controller */,
+				16CE7EFA28205258007CB9F5 /* Cell */,
 				16CE7EE228200A01007CB9F5 /* Main.storyboard */,
 				16CE7EE828200A02007CB9F5 /* Assets.xcassets */,
 				16CE7EEA28200A02007CB9F5 /* LaunchScreen.storyboard */,
@@ -79,6 +85,14 @@
 				16CE7EF428200E3B007CB9F5 /* LocationDetailsVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		16CE7EFA28205258007CB9F5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				16CE7EF828205253007CB9F5 /* LocaitonTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +170,8 @@
 				16CE7EF528200E3B007CB9F5 /* LocationDetailsVC.swift in Sources */,
 				16CE7EDD28200A01007CB9F5 /* AppDelegate.swift in Sources */,
 				16CE7EDF28200A01007CB9F5 /* SceneDelegate.swift in Sources */,
+				16CE7EF928205253007CB9F5 /* LocaitonTableViewCell.swift in Sources */,
+				16CE7EF728204B22007CB9F5 /* Attributes.swift in Sources */,
 				16CE7EE728200A01007CB9F5 /* CoreDataExample.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

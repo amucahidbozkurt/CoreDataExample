@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LocationDetailsVC: UIViewController {
 
@@ -54,7 +55,37 @@ class LocationDetailsVC: UIViewController {
     }
     
     @IBAction private func btnSaveClicked(_ sender: UIButton) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let newLocation = NSEntityDescription.insertNewObject(forEntityName: "Locations", into: context)
         
+        setValues(newLocation: newLocation)
+        saveValues(context: context)
+        
+    }
+    
+    private func setValues(newLocation: NSManagedObject) {
+        newLocation.setValue(UUID(), forKey: Attributes.id.rawValue)
+        newLocation.setValue(lblCity.text, forKey: Attributes.cityName.rawValue)
+        newLocation.setValue(lblFoodName.text, forKey: Attributes.foodName.rawValue)
+        
+        // TODO: Convert string to integer and set year value.
+        if let year = Int(lblYear.text!) {
+            newLocation.setValue(year, forKey: Attributes.year.rawValue)
+        }
+        
+        // TODO: Convert image to data and set image value.
+        let data = imgCity.image?.jpegData(compressionQuality: 0.5)
+        newLocation.setValue(data, forKey: Attributes.image.rawValue)
+    }
+    
+    private func saveValues(context: NSManagedObjectContext) {
+        do {
+            try context.save()
+            print("New location was successfully saved.")
+        } catch {
+            print("ERROR: New location could not be saved!")
+        }
     }
     
 }
