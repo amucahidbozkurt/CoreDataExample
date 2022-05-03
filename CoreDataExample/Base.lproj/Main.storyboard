@@ -128,9 +128,9 @@
                     <connections>
                         <outlet property="btnSave" destination="pDq-d2-wla" id="e2a-JQ-b8f"/>
                         <outlet property="imgCity" destination="Iqn-YK-7E2" id="m3R-Hw-tjX"/>
-                        <outlet property="lblCity" destination="BKN-Bq-dj7" id="qtf-17-dVm"/>
-                        <outlet property="lblFoodName" destination="jKb-Lh-ojf" id="Ybc-ai-wNe"/>
-                        <outlet property="lblYear" destination="dDd-GN-KHQ" id="4jf-8X-dWL"/>
+                        <outlet property="txtFieldCity" destination="BKN-Bq-dj7" id="pg0-kc-oQi"/>
+                        <outlet property="txtFieldFoodName" destination="jKb-Lh-ojf" id="pHf-Bb-MRc"/>
+                        <outlet property="txtFieldYear" destination="dDd-GN-KHQ" id="6iv-2f-cGu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BtI-rt-wRL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

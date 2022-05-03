@@ -50,7 +50,6 @@ class LocationsListVC: UIViewController {
         
         do {
             let results = try context.fetch(fetchRequest)
-            
             for result in results as! [NSManagedObject] {
                 if let cityName = result.value(forKey: Attributes.cityName.rawValue) as? String {
                     cityNameArray.append(cityName)
@@ -78,6 +77,17 @@ extension LocationsListVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocaitonTableViewCell") as! LocaitonTableViewCell
         cell.setData(cityName: cityNameArray[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LocationDetailsVC") as? LocationDetailsVC {
+            viewController.showLocaitonDetails = true
+            viewController.selectedLocation = cityNameArray[indexPath.row]
+            viewController.selectedLocationID = idArray[indexPath.row]
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
     }
     
 }

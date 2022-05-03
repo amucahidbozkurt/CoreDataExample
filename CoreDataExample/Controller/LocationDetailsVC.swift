@@ -11,10 +11,14 @@ import CoreData
 class LocationDetailsVC: UIViewController {
 
     @IBOutlet private weak var imgCity: UIImageView!
-    @IBOutlet private weak var lblCity: UITextField!
-    @IBOutlet private weak var lblYear: UITextField!
-    @IBOutlet private weak var lblFoodName: UITextField!
+    @IBOutlet private weak var txtFieldCity: UITextField!
+    @IBOutlet private weak var txtFieldYear: UITextField!
+    @IBOutlet private weak var txtFieldFoodName: UITextField!
     @IBOutlet private weak var btnSave: UIButton!
+    
+    var showLocaitonDetails: Bool = false
+    var selectedLocation = ""
+    var selectedLocationID: UUID?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +45,51 @@ class LocationDetailsVC: UIViewController {
         imgCity.layer.cornerRadius = 10.0
         imgCity.layer.borderColor = UIColor.systemGray4.cgColor
         btnSave.layer.cornerRadius = 5.0
+        
+        if showLocaitonDetails {
+            // TODO: Get data when clicked the location from LocationListVC
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let locationStringID = selectedLocationID?.uuidString
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Locations")
+            fetchRequest.predicate = NSPredicate(format: "id = %@", locationStringID!)
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            do {
+                let results = try context.fetch(fetchRequest)
+                if results.count > 0 {
+                    for result in results as! [NSManagedObject] {
+                        if let imgData = result.value(forKey: Attributes.image.rawValue) as? Data {
+                            let image = UIImage(data: imgData)
+                            imgCity.image = image
+                        }
+                        
+                        if let cityName = result.value(forKey: Attributes.cityName.rawValue) as? String {
+                            txtFieldCity.text = cityName
+                        }
+                        
+                        if let year = result.value(forKey: Attributes.year.rawValue) as? Int {
+                            txtFieldYear.text = String(year)
+                        }
+                        
+                        if let foodName = result.value(forKey: Attributes.foodName.rawValue) as? String {
+                            txtFieldFoodName.text = foodName
+                        }
+                    }
+                }
+            } catch {
+                print(error)
+            }
+            
+            // TODO: If coming from LocationListVC, update UI
+            imgCity.isUserInteractionEnabled = false
+            txtFieldCity.isUserInteractionEnabled = false
+            txtFieldYear.isUserInteractionEnabled = false
+            txtFieldFoodName.isUserInteractionEnabled = false
+            btnSave.isHidden = true
+            
+        }
     }
     
     @objc private func selectImage() {
@@ -68,11 +117,11 @@ class LocationDetailsVC: UIViewController {
     
     private func setValues(newLocation: NSManagedObject) {
         newLocation.setValue(UUID(), forKey: Attributes.id.rawValue)
-        newLocation.setValue(lblCity.text, forKey: Attributes.cityName.rawValue)
-        newLocation.setValue(lblFoodName.text, forKey: Attributes.foodName.rawValue)
+        newLocation.setValue(txtFieldCity.text, forKey: Attributes.cityName.rawValue)
+        newLocation.setValue(txtFieldFoodName.text, forKey: Attributes.foodName.rawValue)
         
         // TODO: Convert string to integer and set year value.
-        if let year = Int(lblYear.text!) {
+        if let year = Int(txtFieldYear.text!) {
             newLocation.setValue(year, forKey: Attributes.year.rawValue)
         }
         
