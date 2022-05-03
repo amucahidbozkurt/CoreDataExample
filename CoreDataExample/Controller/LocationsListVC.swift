@@ -90,5 +90,44 @@ extension LocationsListVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let locationStringID = idArray[indexPath.row].uuidString
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Locations")
+            fetchRequest.predicate = NSPredicate(format: "id = %@", locationStringID)
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            do {
+                let results = try context.fetch(fetchRequest)
+                if results.count > 0 {
+                    for result in results as! [NSManagedObject] {
+                        if let id = result.value(forKey: Attributes.id.rawValue) as? UUID {
+                            if id == idArray[indexPath.row] {
+                                context.delete(result)
+                                cityNameArray.remove(at: indexPath.row)
+                                idArray.remove(at: indexPath.row)
+                                tableView.reloadData()
+                                
+                                do {
+                                    try context.save()
+                                } catch {
+                                    print(error)
+                                }
+                                
+                                break
+                            }
+                        }
+                    }
+                }
+            } catch {
+                print(error)
+            }
+            
+        }
+    }
+    
 }
 
