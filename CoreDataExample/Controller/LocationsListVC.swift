@@ -50,16 +50,18 @@ class LocationsListVC: UIViewController {
         
         do {
             let results = try context.fetch(fetchRequest)
-            for result in results as! [NSManagedObject] {
-                if let cityName = result.value(forKey: Attributes.cityName.rawValue) as? String {
-                    cityNameArray.append(cityName)
+            if results.count > 0 {
+                for result in results as! [NSManagedObject] {
+                    if let cityName = result.value(forKey: Attributes.cityName.rawValue) as? String {
+                        cityNameArray.append(cityName)
+                    }
+                    
+                    if let id = result.value(forKey: Attributes.id.rawValue) as? UUID {
+                        idArray.append(id)
+                    }
+                    
+                    self.tableView.reloadData()
                 }
-                
-                if let id = result.value(forKey: Attributes.id.rawValue) as? UUID {
-                    idArray.append(id)
-                }
-                
-                self.tableView.reloadData()
             }
         } catch {
             print("error")
